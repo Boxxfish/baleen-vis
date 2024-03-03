@@ -18,7 +18,7 @@ export interface QueryData {
 }
 
 export const load: PageLoad<QueryData> = async ({ fetch, params }) => {
-  const res = await fetch(`/data/${params.slug}.json`);
+  const res = await fetch(`./data/${params.slug.split(".")[0]}.json`);
   const json = await res.json();
   return json;
 };
